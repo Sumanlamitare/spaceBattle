@@ -37,3 +37,7 @@
   height: 30vh;
   justify-self: center;
 }
+
+.message h1 {
+  text-align: center;
+}

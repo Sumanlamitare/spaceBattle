@@ -11,6 +11,20 @@
 // create a action class, create functions inside actions class
 //The battle function will take two class ship class as parameter performs accordingly
 // the retreat function will end the game
+
+//function to log the results in the div
+
+function logResults(result) {
+  const resultDiv = document.querySelector(".message");
+
+  //create an element to log the result
+  const messageElement = document.createElement("p");
+  messageElement.classList.add("log-message");
+  messageElement.textContent = result;
+
+  resultDiv.appendChild(messageElement);
+}
+
 let captain;
 let shipName;
 class Ship {
@@ -27,17 +41,29 @@ class Uss extends Ship {
     this.attack = this.attack.bind(this);
   }
 
-  attack(alienShip) {
-    console.log(`${this.name} is attacking ${alienShip.name}`);
-    while (alienShip.hull > 0 && this.hull > 0)
+  attack(alienship) {
+    //attack while both ships are alive
+    logResults(`You are fighting ${alienship.name}!!`);
+
+    while (alienship.hull > 0 && this.hull > 0) {
       if (Math.random() < this.accuracy) {
-        alienShip.hull -= this.firepower;
+        alienship.hull -= this.firepower;
+        addToConsol(`${alienship.name} has taken ${this.firepower} damage!`);
+        if (alienship.hull <= 0) {
+          //check if Alienship is dead
+          logResults(`${alienship.name} has been destroyed!!`);
 
-        console.log(`Alienship got hit and lost ${this.fireopower}`);
-      }
-
-    if (Math.random() < alienShip.accuracy) {
-      this.hull -= alienShip.firepower;
+          break;
+        }
+      } else addToConsol(`${this.name} missed!!`);
+      if (Math.random() < alienship.accuracy) {
+        this.hull -= alienship.firepower;
+        logResults(`${this.name} has taken ${alienship.firepower} damage!`);
+        if (this.hull <= 0) {
+          logResults(`${this.name} has been destroyed!!`);
+          break;
+        }
+      } else logResults(`${alienship.name} missed!!`);
     }
   }
 }
