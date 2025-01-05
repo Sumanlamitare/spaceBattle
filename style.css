@@ -1,0 +1,39 @@
+.gameContainer {
+  border: solid red;
+  background-color: black;
+  height: 50vh;
+  width: 70vh;
+  justify-self: center;
+  display: flex;
+  justify-content: space-between;
+  background-image: url(" https://media0.giphy.com/media/26n6G8lRMOrYC6rFS/giphy.gif?cid=6c09b95225bs99e8nhklnj93digdfmh9u708eeovsi7u77yt&ep=v1_gifs_search&rid=giphy.gif&ct=g");
+}
+
+.shipContainer {
+  border: solid red;
+  width: 180px;
+  height: 90px;
+  background-image: url("https://i.pinimg.com/originals/a3/7d/68/a37d68c2d1ec236b299aa6af9d03dead.jpg");
+  background-size: cover;
+  /* margin-top: 20em; */
+  display: none;
+  transform: rotate(-30deg);
+}
+.alienShip {
+  border: solid red;
+  width: 180px;
+  height: 90px;
+  /* background-image: url("https://i.pinimg.com/originals/a3/7d/68/a37d68c2d1ec236b299aa6af9d03dead.jpg"); */
+  background-size: cover;
+  /* margin-top: 20em; */
+  display: none;
+  /* transform: rotate(-30deg); */
+}
+
+.message {
+  background-color: black;
+  color: white;
+  width: 70vh;
+  height: 30vh;
+  justify-self: center;
+}
