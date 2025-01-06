@@ -59,6 +59,7 @@ class Uss extends Ship {
         if (alienship.hull <= 0) {
           //check if Alienship is dead
           logResults(`${alienship.name} has been destroyed!!`);
+          logResults(`Your remaining hull is ${this.hull}`);
           break;
         }
       } else logResults(`${this.name} missed!!`);
@@ -67,6 +68,7 @@ class Uss extends Ship {
         logResults(`${this.name} has taken ${alienship.firepower} damage!`);
         if (this.hull <= 0) {
           logResults(`${this.name} has been destroyed!!`);
+
           break;
         }
       } else logResults(`${alienship.name} missed!!`);
@@ -116,7 +118,9 @@ class Game {
 
   startGame() {
     logResults("Game Started");
-    logResults("--------------------------------");
+    logResults(
+      "------------------------------------------------------------------"
+    );
     const shipDiv = document.querySelector(".shipContainer");
     shipDiv.style.display = "block";
     this.selectRandomAlien();
@@ -156,10 +160,15 @@ class Game {
       this.defeatedAliens++;
 
       this.showActionBtns();
-      logResults("--------------------------------");
+      logResults(
+        "------------------------------------------------------------------"
+      );
     } else if (this.playerShip.hull <= 0) {
       logResults("Game over! You have been destroyed!");
       this.gameOver();
+      logResults(
+        "------------------------------------------------------------------"
+      );
     }
   }
   showActionBtns() {
@@ -194,7 +203,7 @@ class Game {
     retreatBtn.style.display = "none";
 
     logResults(
-      `Game over, your ship is destroyed. You defeated ${this.defeatedAliens}`
+      `Game over, your ship is destroyed. You defeated ${this.defeatedAliens} alien(s)`
     );
   }
 }
