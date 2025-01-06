@@ -50,7 +50,7 @@ class Uss extends Ship {
 
   attack(alienship) {
     //attack while both ships are alive
-    logResults(`You are fighting ${alienship.name}!!`);
+    logResults(`${this.name} is fighting ${alienship.name}!!`);
 
     while (alienship.hull > 0 && this.hull > 0) {
       if (Math.random() < this.accuracy) {
@@ -85,7 +85,7 @@ class Aliens extends Ship {
 }
 class Game {
   constructor() {
-    this.playerShip = new Uss("Aliens worst Nightmare");
+    this.playerShip = new Uss("Luffy");
     this.aliens = [
       new Aliens(
         "Warlord",
@@ -116,6 +116,9 @@ class Game {
 
   startGame() {
     logResults("Game Started");
+    logResults("--------------------------------");
+    const shipDiv = document.querySelector(".shipContainer");
+    shipDiv.style.display = "block";
     this.selectRandomAlien();
   }
 
@@ -153,6 +156,7 @@ class Game {
       this.defeatedAliens++;
 
       this.showActionBtns();
+      logResults("--------------------------------");
     } else if (this.playerShip.hull <= 0) {
       logResults("Game over! You have been destroyed!");
       this.gameOver();
@@ -176,9 +180,13 @@ class Game {
   }
 
   retreat() {
+    const resultDiv = document.querySelector(".message");
+    resultDiv.innerHTML = "";
+
     logResults(
       `You retreated. You defeated ${this.defeatedAliens} alien(s). The game is over.`
     );
+    logResults(`Your remaining hull is ${this.playerShip.hull}`);
   }
 
   gameOver() {

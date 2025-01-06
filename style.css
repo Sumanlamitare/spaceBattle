@@ -10,22 +10,24 @@
 }
 
 .shipContainer {
-  border: solid red;
+  /* border: solid red; */
   width: 180px;
   height: 90px;
   background-image: url("https://i.pinimg.com/originals/a3/7d/68/a37d68c2d1ec236b299aa6af9d03dead.jpg");
   background-size: cover;
   /* margin-top: 20em; */
-  /* display: none; */
+  display: none;
   transform: rotate(-50deg);
+  margin-top: 10em;
 }
 .alienShip {
-  border: solid red;
+  /* border: solid red; */
   width: 180px;
   height: 180px;
   /* background-image: url("https://i.pinimg.com/originals/a3/7d/68/a37d68c2d1ec236b299aa6af9d03dead.jpg"); */
   background-size: cover;
   background-repeat: no-repeat;
+  margin-top: 10em;
 }
 
 .message {
